@@ -6,9 +6,9 @@ public class NBody {
     }
 
     public static Planet[] readPlanets(String PlanetName) {
-        Planet[] Planets = new Planet[5];
         In in = new In(PlanetName);
-        in.readInt();
+        int num =in.readInt();
+        Planet[] Planets = new Planet[num];
         in.readDouble();
         for (int i = 0; i < Planets.length && !in.isEmpty(); i++) {
             double xxPos = in.readDouble();
@@ -31,7 +31,7 @@ public class NBody {
         double Radius = readRadius(filename);
 
         StdDraw.enableDoubleBuffering();
-        for(int i= 0; i<= T;i+=1000) {
+        for(double i= 0; i<= T;i+= dt) {
             StdDraw.clear();
             StdDraw.picture(0,0,"./images/starfield.jpg");
             double[] xForces = new double[5];
